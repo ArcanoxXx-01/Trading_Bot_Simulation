@@ -1,54 +1,105 @@
+# 🤖 Simulación de un Bot de Trading con Eventos Discretos
 
-# Proyecto: Simulación de Eventos Discretos
+Este proyecto implementa una simulación de eventos discretos para analizar el comportamiento de un bot de trading bajo distintos escenarios de mercado. La idea surge como proyecto del curso de Simulación, y busca aplicar herramientas estadísticas reales para evaluar estrategias de inversión simples pero controlables.
 
-Este proyecto tiene como objetivo desarrollar una simulación de eventos discretos para analizar y entender mejor ciertos fenómenos. A través de este trabajo, buscamos aplicar los principios de la simulación de eventos discretos para modelar y experimentar con estos fenómenos, y obtener resultados que nos ayuden a tomar decisiones informadas.
+---
 
-El proyecto debe ser entregado en un repositorio público de GitHub. Este repositorio debe contener tanto el código fuente de tu simulación como el informe del proyecto en LaTeX (incluir el pdf compilado). Asegúrese de que el repositorio esté bien organizado y que tanto el código como el informe sean fácilmente accesibles.
+## 📌 Objetivos del Proyecto
 
-El informe del proyecto debe ser autocontenido y debe proporcionar una descripción clara y detallada de la simulación, los resultados y las conclusiones, asi como todas las tablas y gráficos necesarios para respaldar sus afirmaciones. En caso de que algunas de sus afirmaciones se basen en la literatura existente, asegúrese de citar adecuadamente las fuentes.
+- Implementar un modelo de simulación para bots de trading.
+- Evaluar diferentes configuraciones de bots (estrategias).
+- Comparar el desempeño bajo distintos modelos de precios.
+- Analizar cómo afecta el horizonte temporal (semana, mes, año).
+- Aplicar técnicas estadísticas: bootstrap, tests de hipótesis, intervalo de confianza, etc.
 
-# Estructura del informe(Ejemplo)
+---
 
-## S1 Introducción
+## 📊 Funcionalidades implementadas
 
-- Breve descripción del proyecto
-- Objetivos y metas
-- El sistema específico a simular y las variables de interés que cada equipo debe analizar se les hará saber por esta misma vía.
-- Variables que describen el problema
+✅ Simulación de bots con lógica de umbrales y comisiones.
 
-## S2 Detalles de Implementación
+✅ Generadores de precios:
 
-- Pasos seguidos para la implementación
+* Ruido gaussiano simple
+* Tendencia agregada
+* Movimiento browniano geométrico
+* Procesos mean-reverting
 
-## S3 Resultados y Experimentos
+✅ Múltiples simulaciones con distintas semillas.
 
-- Hallazgos de la simulación
-- Interpretación de los resultados
-- Hipótesis extraídas de los resultados
-- Experimentos realizados para validar las hipótesis
-- Necesidad de realizar el análisis estadístico de la simulación (Variables de interés)
-- Análisis de parada de la simulación
+✅ Estimación de error y criterio de parada automática.
 
-## S4 Modelo Matemático
-- Descripción del modelo de como modelos probabilísticos.
-- Supuestos y restricciones
-- Comparación de los resultados obtenidos con los resultados experimentales.
+✅ Bootstrap para estimar media, mediana e IC.
 
-## S5 Conclusiones
+✅ Pruebas estadísticas:
+* Shapiro-Wilk
+* D’Agostino
+* Mann-Whitney U
+* KS-test
 
-# Pool de proyectos
+✅ Comparación entre estrategias.
 
-- Simulación de eventos deportivos
-- Ejemplos del libro "Aplicando Teoría de Colas en Dirección de Operaciones" capítulos 6 y 7 que no estén resueltos en el libro.
-- Ejemplos del libro "Simulation, Fifth Edition by Sheldon M. Ross" del 7.3 al 7.8.
-- Temas de interés del estudiante previa aprobación de algún profesor.
+✅ Comparación entre modelos de precios.
 
-En los ejemplos en los que se provean valores concretos de variables o distribuciones se deberá realizar un análisis del impacto de la variación de estos valores en los resultados de la simulación.
+✅ Comparación entre horizontes temporales.
 
-# Sobre la evaluación
+✅ Gráficas de portafolio, decisiones, evolución de trades.
 
-La evaluación consistirá en la revisión del informe y del código fuente de la simulación. Se evaluará la calidad del informe, la calidad del código, la corrección de la simulación y la interpretación de los resultados. Asegúrese de que su informe sea claro y conciso, y de que proporcione toda la información necesaria para que su simulación sea comprendida y evaluada adecuadamente. En caso necesario, se le pedirá que realice una presentación oral del proyecto.
 
-la evaluación será individual.
+## 📁 Estructura del Proyecto
 
-La sección 4 del informe no es obligatoria para aprobar el proyecto, pero se considera necesaria para obtener la maxima calificación y solo será sustituible por un trabajo de modelación novedoso e impecable.
+```bash
+trading_bot_simulation/ 
+├── data/               # Resultados en CSV 
+│   └── ...
+├── figures/            # Gráficas generadas automáticamente 
+│   └── ...
+├── report/             # Informe en LaTeX
+│   ├── informe.pdf
+│   └── informe.tex
+├── analysis.py         # Lógica de simulaciones múltiples, tests, bootstrap, paradas y más
+├── bot.py              # Lógica del bot y sus decisiones 
+├── experiments.py      # Scripts de prueba para análisis 
+├── main.py             # Ejemplo de simulación básica 
+├── market.py           # Generadores de precios (diferentes modelos) 
+├── plotter.py          # Gráficas de desempeño, evolución, comparaciones 
+├── requirements.txt    # Almecena las dependencias del proyecto
+└── simulator.py        # Corre la simulación paso a paso 
+```
+
+---
+
+## ⚙️ Cómo usar el proyecto
+
+### 1. Clona el repositorio:
+
+```bash
+git clone https://github.com/ArcanoxXx-01/Trading_Bot_Simulation.git
+cd Trading_Bot_Simulation
+```
+### 2. Instalar dependencias
+
+2.1 Crear un entorno virtual de pytho (opcional)
+```bash
+python3 -m venv env
+```
+Activar el entorno virtual
+``` bash
+source env/bin/activate
+```
+2.2 Utilizar el siguiente comando para instalar todas las dependencias de manera automatica
+```bash
+pip install -r requirements.txt
+```
+
+## 👨‍💻 Autor
+
+### Darío López Falcón 
+
+Estudiante de Ciencias de la Computación de la Universidad de La Habana
+
+1er Proyecto del curso de Simulación 2024–2025
+
+## 📎 Licencia
+
+MIT License
