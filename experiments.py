@@ -132,41 +132,31 @@ df = simulate_multiple_runs(bot_config, n_runs=100)
 
 # ===========================================================================================
 
-horizontes = {
-    "Semana": 50,
-    "Mes": 200,
-    "Año": 1000
-}
+# horizontes = {
+#     "Semana": 50,
+#     "Mes": 200,
+#     "Año": 1000
+# }
 
-resultados_horizonte = {}
+# resultados_horizonte = {}
 
-for nombre, pasos in horizontes.items():
-    df = simulate_multiple_runs(
-        bot_config, n_runs=100, n_steps=pasos, sigma=1.0
-    )
-    resultados_horizonte[nombre] = df
-    print(f"[📈] {nombre}: media = ${df['net_worth'].mean():.2f}, trades promedio = {df['trades'].mean():.2f}")
+# for nombre, pasos in horizontes.items():
+#     df = simulate_multiple_runs(
+#         bot_config, n_runs=100, n_steps=pasos, sigma=1.0
+#     )
+#     resultados_horizonte[nombre] = df
+#     print(f"[📈] {nombre}: media = ${df['net_worth'].mean():.2f}, trades promedio = {df['trades'].mean():.2f}")
 
-plot_price_model_comparison(
-    resultados_dict=resultados_horizonte,
-    metric="net_worth",
-    save_path="figures/comparacion_horizontes_networth.png",
-    title="Ganancia Final según el Horizonte de Simulación"
-)
+# plot_price_model_comparison(
+#     resultados_dict=resultados_horizonte,
+#     metric="net_worth",
+#     save_path="figures/comparacion_horizontes_networth.png",
+#     title="Ganancia Final según el Horizonte de Simulación"
+# )
 
-plot_price_model_comparison(
-    resultados_dict=resultados_horizonte,
-    metric="trades",
-    save_path="figures/comparacion_horizontes_trades.png",
-    title="Cantidad de Operaciones según el Horizonte"
-)
-
-
-
-
-
-
-
-
-
-
+# plot_price_model_comparison(
+#     resultados_dict=resultados_horizonte,
+#     metric="trades",
+#     save_path="figures/comparacion_horizontes_trades.png",
+#     title="Cantidad de Operaciones según el Horizonte"
+# )

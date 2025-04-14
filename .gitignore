@@ -1,8 +1,7 @@
-zzz.txt
-report
-figures
-data
+hitos.txt 
 
+*.pdf
+*.tex
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

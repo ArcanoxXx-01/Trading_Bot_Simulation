@@ -4,6 +4,7 @@ import seaborn as sns
 import os
 
 def plot_bot_trades(prices, bots):
+    """muestra (precios, compras y ventas) con colores"""
     fig, ax = plt.subplots(figsize=(12, 6))
     ax.plot(prices, label="Precio", color="black")
 
@@ -26,6 +27,7 @@ def plot_bot_trades(prices, bots):
 
 
 def plot_distribution(df, column="net_worth", save_path=None, title="Distribución de Ganancias"):
+    """Graficar distribución de ganancias."""
     fig, ax = plt.subplots(figsize=(10, 5))
     ax.hist(df[column], bins=20, color="skyblue", edgecolor="black", alpha=0.7)
     ax.set_title(title)
@@ -62,6 +64,7 @@ def trace_error_plot(error_trace):
     plot_path
 
 def plot_bootstrap_distribution(samples, real_value=None, ci=None, save_path=None, title="Distribución Bootstrap"):
+    """Gráfica de la distribución bootstrap"""
     fig, ax = plt.subplots(figsize=(10, 5))
     ax.hist(samples, bins=30, color="skyblue", edgecolor="black", alpha=0.7)
     ax.set_title(title)
@@ -159,7 +162,7 @@ def plot_price_model_comparison(resultados_dict, metric="net_worth", save_path=N
     df_plot = pd.concat(df_all, ignore_index=True)
 
     plt.figure(figsize=(10, 6))
-    sns.boxplot(data=df_plot, x="Modelo", y=metric, palette="Set2")
+    sns.boxplot(data=df_plot, hue="Modelo", y=metric, legend=False ,palette="Set2")
     plt.title(title or f"Comparación del Bot según el Modelo de Precios ({metric})")
     plt.ylabel(metric.replace("_", " ").capitalize())
     plt.grid(True)

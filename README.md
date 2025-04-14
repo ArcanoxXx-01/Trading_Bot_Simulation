@@ -63,6 +63,7 @@ trading_bot_simulation/
 ├── main.py             # Ejemplo de simulación básica 
 ├── market.py           # Generadores de precios (diferentes modelos) 
 ├── plotter.py          # Gráficas de desempeño, evolución, comparaciones 
+├── presentacion.ipynb  # Presentacion con algunos analisis y preguntas sobre el modelo como ejemplo
 ├── requirements.txt    # Almecena las dependencias del proyecto
 └── simulator.py        # Corre la simulación paso a paso 
 ```

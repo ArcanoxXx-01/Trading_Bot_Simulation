@@ -1,4 +1,5 @@
 class TradingBot:
+    """Bot con lógica de umbrales, comisión y registro de decisiones"""
     def __init__(self, name, initial_cash, buy_thresh, sell_thresh, fee=0.0):
         self.name = name
         self.cash = initial_cash

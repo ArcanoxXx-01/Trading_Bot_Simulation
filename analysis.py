@@ -6,6 +6,7 @@ from market import generate_prices
 import os
 
 def simulate_multiple_runs(bot_config, n_runs=100, n_steps=300, sigma=1.0):
+    """Ejecutar el bot muchas veces con distintas semillas."""
     results = []
     for seed in range(n_runs):
         bot = TradingBot(**bot_config)
@@ -30,6 +31,18 @@ def test_normality(df, column="net_worth"):
     }
 
 def simulate_until_confidence(bot_config, d=100, confidence=0.95, max_runs=1000, n_steps=300, sigma=1.0):
+    """Simular al bot repetidas veces y detenerse automáticamente cuando el intervalo de confianza 
+    para la ganancia promedio sea suficientemente pequeño:
+
+        z⋅σ/sqrt(n)<d
+
+    Args:
+        d: el margen de error tolerable (ej. $100).
+
+        z: valor crítico para tu nivel de confianza (1.96 para 95%).
+
+        max_runs: número máximo de simulaciones antes de rendirse.  
+    """
     from scipy.stats import norm
     z = norm.ppf(0.5 + confidence / 2)
 
